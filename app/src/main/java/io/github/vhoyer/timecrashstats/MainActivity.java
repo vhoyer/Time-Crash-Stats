@@ -1,17 +1,23 @@
 package io.github.vhoyer.timecrashstats;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 public class MainActivity extends AppCompatActivity
 	implements NavigationView.OnNavigationItemSelectedListener {
@@ -87,7 +93,7 @@ public class MainActivity extends AppCompatActivity
 		} else if (id == R.id.nav_ranking) {
 
 		} else if (id == R.id.nav_resync) {
-
+			scanQR();
 		} else if (id == R.id.nav_savedPlays) {
 
 		} else if (id == R.id.nav_share) {
@@ -97,5 +103,40 @@ public class MainActivity extends AppCompatActivity
 		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 		drawer.closeDrawer(GravityCompat.START);
 		return true;
+	}
+
+	public void scanQR(){
+		IntentIntegrator integrator = new IntentIntegrator(this);
+		integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
+		integrator.setPrompt("Scan a QR code");
+		integrator.setCameraId(0);  // Use a specific camera of the device
+		integrator.setBeepEnabled(false);
+		integrator.setBarcodeImageEnabled(true);
+		integrator.setOrientationLocked(false);
+		integrator.initiateScan();
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+
+		if(result != null) {
+			if(result.getContents() == null) {
+				//cancel
+			} else {
+				new AlertDialog.Builder(this)
+					.setTitle("Scanned")
+					.setMessage(result.getContents())
+					.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int which) {
+							// continue with delete
+						}
+					})
+				.setIcon(android.R.drawable.ic_dialog_alert)
+					.show();
+			}
+		} else {
+			super.onActivityResult(requestCode, resultCode, data);
+		}
 	}
 }

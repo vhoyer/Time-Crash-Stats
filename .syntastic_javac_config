@@ -1,0 +1,1 @@
+let g:syntastic_java_javac_classpath = '/home/vhoyer/Android/sdk/platforms/android-*/*.jar:/home/vhoyer/AndroidStudioProjects/TimeCrashStats/*.jar'

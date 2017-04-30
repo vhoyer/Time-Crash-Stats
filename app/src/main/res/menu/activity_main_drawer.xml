@@ -7,6 +7,7 @@
             android:icon="@drawable/ic_menu_sync"
             android:title="@string/resync"/>
         <item
+            android:checked="true"
             android:id="@+id/nav_performance"
             android:icon="@drawable/ic_menu_performance"
             android:title="@string/performanceHistory"/>
