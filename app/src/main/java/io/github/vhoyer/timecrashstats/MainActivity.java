@@ -122,7 +122,16 @@ public class MainActivity extends AppCompatActivity
 
 		if(result != null) {
 			if(result.getContents() == null) {
-				//cancel
+				new AlertDialog.Builder(this)
+					.setTitle("not Scanned")
+					.setMessage("There was an error")
+					.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int which) {
+							// continue with delete
+						}
+					})
+				.setIcon(android.R.drawable.ic_dialog_alert)
+					.show();
 			} else {
 				new AlertDialog.Builder(this)
 					.setTitle("Scanned")

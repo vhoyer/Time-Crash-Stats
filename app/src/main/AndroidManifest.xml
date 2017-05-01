@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="io.github.vhoyer.timecrashstats">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="io.github.vhoyer.timecrashstats">
 
 	<application
 		android:allowBackup="true"
@@ -28,7 +29,8 @@
 		</activity>
 		<activity
 			android:name="com.journeyapps.barcodescanner.CaptureActivity"
-			android:screenOrientation="portrait"/>
+			android:screenOrientation="portrait"
+            tools:replace="android:screenOrientation"/>
 	</application>
 
 </manifest>
