@@ -1,5 +1,6 @@
 package io.github.vhoyer.timecrashstats;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -28,6 +29,10 @@ public class MainActivity extends AppCompatActivity
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 
+		if (savedInstanceState == null){
+			fragmentHandler(new Fragment());
+		}
+
 		FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 		fab.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -45,8 +50,6 @@ public class MainActivity extends AppCompatActivity
 
 		NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 		navigationView.setNavigationItemSelectedListener(this);
-
-		setFragmentManager();
 	}
 
 	@Override
@@ -96,22 +99,28 @@ public class MainActivity extends AppCompatActivity
 		int id = item.getItemId();
 
 		if (id == R.id.nav_performance) {
-			// Handle the camera action
+            fragmentHandler(new Fragment());
 		} else if (id == R.id.nav_topPlay) {
-
+            fragmentHandler(new Fragment());
 		} else if (id == R.id.nav_ranking) {
-
+            fragmentHandler(new RankingFragment());
 		} else if (id == R.id.nav_resync) {
+            setFragmentManager();
 			SyncFragment sync = (SyncFragment)getFragmentManager().findFragmentByTag("syncFragment");
             sync.scanQR();
 		} else if (id == R.id.nav_savedPlays) {
-
+            fragmentHandler(new Fragment());
 		} else if (id == R.id.nav_share) {
-
+            fragmentHandler(new Fragment());
 		}
 
 		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 		drawer.closeDrawer(GravityCompat.START);
 		return true;
 	}
+
+    private void fragmentHandler(Fragment fragment){
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.fragmentPlaceHolder, fragment).commit();
+    }
 }
