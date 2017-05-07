@@ -49,8 +49,6 @@ public class MainActivity extends AppCompatActivity
 
 		NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 		navigationView.setNavigationItemSelectedListener(this);
-
-        setFragmentManager();
 	}
 
 	@Override
@@ -85,14 +83,6 @@ public class MainActivity extends AppCompatActivity
 		return super.onOptionsItemSelected(item);
 	}
 
-	private void setFragmentManager(){
-		FragmentManager fragmentManager = getFragmentManager();
-		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-		fragmentTransaction.add(new SyncFragment(), "syncFragment");
-		fragmentTransaction.commit();
-	}
-
 	@SuppressWarnings("StatementWithEmptyBody")
 	@Override
 	public boolean onNavigationItemSelected(MenuItem item) {
@@ -106,8 +96,7 @@ public class MainActivity extends AppCompatActivity
 		} else if (id == R.id.nav_ranking) {
 			fragmentHandler(new RankingFragment());
 		} else if (id == R.id.nav_resync) {
-			SyncFragment sync = (SyncFragment)getFragmentManager().findFragmentByTag("syncFragment");
-			sync.scanQR();
+			fragmentHandler(new SyncFragment());
 		} else if (id == R.id.nav_savedPlays) {
 			fragmentHandler(new Fragment());
 		} else if (id == R.id.nav_share) {

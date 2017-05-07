@@ -9,12 +9,13 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class createPlayerStats extends SQLiteOpenHelper {
-	private static final String DB_NAME = "TCStats.db";
-	private static final String TABLE = "playsStats";
-	private static final String ID = "id";
-	private static final String DATATIME = "dateTime";
-	private static final String POINTS = "points";
-	private static final int VERSION = 1;
+	public static final String DB_NAME = "TCStats.db";
+	public static final String TABLE = "playsStats";
+	public static final String ID = "id";
+	public static final String DATETIME = "dateTime";
+	public static final String LASTSYNCED = "lastSynced";
+	public static final String POINTS = "points";
+	public static final int VERSION = 1;
 
 	public createPlayerStats(Context context){
 		super(context, DB_NAME, null, VERSION);
@@ -24,7 +25,8 @@ public class createPlayerStats extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		String sql = "CREATE TABLE " + TABLE + "("
 			+ ID + " integer primary key autoincrement,"
-			+ DATATIME + " text,"
+			+ DATETIME + " text,"
+			+ LASTSYNCED + " text,"
 			+ POINTS + " text"
 			+")";
 		db.execSQL(sql);
