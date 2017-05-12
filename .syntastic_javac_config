@@ -1,1 +1,1 @@
-let g:syntastic_java_javac_classpath = '/home/vhoyer/Android/sdk/platforms/android-*/*.jar:/home/vhoyer/AndroidStudioProjects/TimeCrashStats/*.jar:/home/vhoyer/.android/build-cache/*.jar'
+let g:syntastic_java_javac_classpath = '/home/vhoyer/Android/sdk/platforms/android-*/*.jar:/home/vhoyer/AndroidStudioProjects/TimeCrashStats/*.jar:/home/vhoyer/AndroidStudioProjects/TimeCrashStats/*.class:/home/vhoyer/.android/build-cache/*.jar'
