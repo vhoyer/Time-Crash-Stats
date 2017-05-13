@@ -2,6 +2,7 @@ package io.github.vhoyer.timecrashstats.model;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.text.SimpleDateFormat;
@@ -13,31 +14,60 @@ import java.util.Date;
 
 public class dbController {
 
-	private SQLiteDatabase db;
-	private createPlayerStats playerStats;
+	private SQLiteDatabase sqliteDB;
+	private CreateDB db;
 
 	public dbController(Context context){
-		playerStats = new createPlayerStats(context);
+		db = new CreateDB(context);
 	}
 
 	public long insert(String datetime, String points){
+		SimpleDateFormat dateFormat;
 		ContentValues values;
-		SimpleDateFormat databaseDateTimeFormate;
 		String curdatetime;
 		long result;
 
-		databaseDateTimeFormate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-		curdatetime = databaseDateTimeFormate.format(new Date()); //2009-06-30 08:29:36
+		dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		curdatetime = dateFormat.format(new Date()); //2009-06-30 08:29:36
+		try { //converting date format to be more convenient
+			Date dt = dateFormat.parse(datetime);
+			datetime = dateFormat.format(dt);
+		} catch (Exception err) { }
 
-		db = playerStats.getWritableDatabase();
+		sqliteDB = db.getWritableDatabase();
 		values = new ContentValues();
-		values.put(createPlayerStats.DATETIME, datetime);
-		values.put(createPlayerStats.LASTSYNCED, curdatetime);
-		values.put(createPlayerStats.POINTS, points);
+		values.put(CreateDB.DATETIME, datetime);
+		values.put(CreateDB.LASTSYNCED, curdatetime);
+		values.put(CreateDB.POINTS, points);
 
-		result = db.insert(createPlayerStats.TABLE, null, values);
-		db.close();
+		result = sqliteDB.insert(CreateDB.TABLE, null, values);
+		sqliteDB.close();
 
 		return result;
+	}
+
+	public Cursor loadAll(){
+		//"SELECT * FROM " + db.TABLE + " ORDER BY " + db.POINTS
+		String[] campos =  {db.ID, db.LASTSYNCED, db.POINTS, db.DATETIME};
+		sqliteDB = db.getReadableDatabase();
+		Cursor cursor = sqliteDB.query(db.TABLE, campos, null, null, null, null, null, null);
+
+		if(cursor!=null){
+			cursor.moveToFirst();
+		}
+		sqliteDB.close();
+		return cursor;
+	}
+
+	public Cursor loadRanking(){
+		String query = "SELECT * FROM " + db.TABLE + " ORDER BY cast(" + db.POINTS + " as unsigned) DESC";
+		sqliteDB = db.getReadableDatabase();
+		Cursor cursor = sqliteDB.rawQuery(query, null);
+
+		if(cursor!=null){
+			cursor.moveToFirst();
+		}
+		sqliteDB.close();
+		return cursor;
 	}
 }

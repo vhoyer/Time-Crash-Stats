@@ -16,6 +16,8 @@ import android.widget.LinearLayout;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import io.github.vhoyer.timecrashstats.controller.FragmentIntentIntegrator;
+
 import static android.widget.LinearLayout.HORIZONTAL;
 
 

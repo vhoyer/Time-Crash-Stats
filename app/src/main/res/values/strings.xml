@@ -1,24 +1,27 @@
 <resources>
-	<string name="app_name">Time Crash Stats</string>
+    <string name="app_name">Time Crash Stats</string>
 
-	<string name="navigation_drawer_open">Open navigation drawer</string>
-	<string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
-	<string name="action_settings">Settings</string>
+    <string name="action_settings">Settings</string>
 
-	<!--Menu Drawer{{{-->
-	<string name='resync'>Re-sync</string>
-	<string name='performanceHistory'>Performance History</string>
-	<string name='topPlay'>Top play</string>
-	<string name='savedPlays'>Saved plays</string>
-	<string name='ranking'>Ranking</string>
+    <!--Menu Drawer{{{-->
+    <string name='resync'>Re-sync</string>
+    <string name='performanceHistory'>Performance History</string>
+    <string name='topPlay'>Top play</string>
+    <string name='savedPlays'>Saved plays</string>
+    <string name='ranking'>Ranking</string>
 
-	<string name='other'>Other</string>
-	<string name='share'>Share</string>
-	<!--/Menu Drawer}}}-->
+    <string name='other'>Other</string>
+    <string name='share'>Share</string>
+    <!--/Menu Drawer}}}-->
 
-	<!--Sync Tab-->
-	<string name="sync_now">Sync now</string>
-	<string name="syncText">Hey, have you tried syncing?</string>
-	<!--/Sync Tab-->
+    <!--Sync Tab-->
+    <string name="sync_now">Sync now</string>
+    <string name="syncText">Hey, have you tried syncing?</string>
+    <!--/Sync Tab-->
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

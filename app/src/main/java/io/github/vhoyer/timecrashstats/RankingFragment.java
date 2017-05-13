@@ -2,12 +2,17 @@ package io.github.vhoyer.timecrashstats;
 
 
 import android.app.Fragment;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+
+import io.github.vhoyer.timecrashstats.controller.RankingCursorAdapter;
+import io.github.vhoyer.timecrashstats.model.dbController;
 
 
 /**
@@ -25,12 +30,19 @@ public class RankingFragment extends Fragment implements View.OnClickListener {
 		super.onCreate(savedInstanceState);
 	}
 
-	public void onActivityCreated(Bundle savedInstanceState){
+	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 
 		FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
 		fab.setVisibility(View.VISIBLE);
 		fab.setOnClickListener(this);
+
+		dbController crud = new dbController(getActivity());
+		Cursor cursor = crud.loadRanking();
+
+		ListView rankList = (ListView) getActivity().findViewById(R.id.rank_rankList);
+		RankingCursorAdapter adptr = new RankingCursorAdapter(getActivity(), cursor);
+		rankList.setAdapter(adptr);
 	}
 
 	@Override

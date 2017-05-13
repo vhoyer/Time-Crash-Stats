@@ -1,4 +1,4 @@
-package io.github.vhoyer.timecrashstats;
+package io.github.vhoyer.timecrashstats.controller;
 
 import android.app.Fragment;
 import android.content.Intent;

@@ -8,16 +8,16 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by vhoyer on 05/05/17.
  */
 
-public class createPlayerStats extends SQLiteOpenHelper {
+public class CreateDB extends SQLiteOpenHelper {
 	public static final String DB_NAME = "TCStats.db";
 	public static final String TABLE = "playsStats";
-	public static final String ID = "id";
+	public static final String ID = "_id";
 	public static final String DATETIME = "dateTime";
 	public static final String LASTSYNCED = "lastSynced";
 	public static final String POINTS = "points";
-	public static final int VERSION = 1;
+	public static final int VERSION = 2;
 
-	public createPlayerStats(Context context){
+	public CreateDB(Context context){
 		super(context, DB_NAME, null, VERSION);
 	}
 

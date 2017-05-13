@@ -2,7 +2,6 @@ package io.github.vhoyer.timecrashstats;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -91,15 +90,20 @@ public class MainActivity extends AppCompatActivity
 
 		if (id == R.id.nav_performance) {
 			fragmentHandler(new Fragment());
-		} else if (id == R.id.nav_topPlay) {
+		}
+		else if (id == R.id.nav_topPlay) {
 			fragmentHandler(new Fragment());
-		} else if (id == R.id.nav_ranking) {
+		}
+		else if (id == R.id.nav_ranking) {
 			fragmentHandler(new RankingFragment());
-		} else if (id == R.id.nav_resync) {
+		}
+		else if (id == R.id.nav_resync) {
 			fragmentHandler(new SyncFragment());
-		} else if (id == R.id.nav_savedPlays) {
-			fragmentHandler(new Fragment());
-		} else if (id == R.id.nav_share) {
+		}
+		else if (id == R.id.nav_savedPlays) {
+			fragmentHandler(new SavedPlaysFragment());
+		}
+		else if (id == R.id.nav_share) {
 			fragmentHandler(new Fragment());
 		}
 
