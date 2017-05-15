@@ -1,4 +1,4 @@
-package io.github.vhoyer.timecrashstats;
+package com.wecrash.timecrashstats;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

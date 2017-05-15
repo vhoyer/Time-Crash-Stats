@@ -1,4 +1,4 @@
-package io.github.vhoyer.timecrashstats.model;
+package com.wecrash.timecrashstats.model;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -47,7 +47,6 @@ public class dbController {
 	}
 
 	public Cursor loadAll(){
-		//"SELECT * FROM " + db.TABLE + " ORDER BY " + db.POINTS
 		String[] campos =  {db.ID, db.LASTSYNCED, db.POINTS, db.DATETIME};
 		sqliteDB = db.getReadableDatabase();
 		Cursor cursor = sqliteDB.query(db.TABLE, campos, null, null, null, null, null, null);

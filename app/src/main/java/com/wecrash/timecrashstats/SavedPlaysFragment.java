@@ -1,4 +1,4 @@
-package io.github.vhoyer.timecrashstats;
+package com.wecrash.timecrashstats;
 
 
 import android.app.Fragment;
@@ -11,7 +11,9 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
-import io.github.vhoyer.timecrashstats.model.dbController;
+import com.wecrash.timecrashstats.model.dbController;
+
+import io.github.vhoyer.timecrashstats.R;
 
 
 /**

@@ -1,4 +1,4 @@
-package io.github.vhoyer.timecrashstats.model;
+package com.wecrash.timecrashstats.model;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

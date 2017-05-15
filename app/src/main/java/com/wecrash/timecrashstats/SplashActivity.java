@@ -1,4 +1,4 @@
-package io.github.vhoyer.timecrashstats;
+package com.wecrash.timecrashstats;
 
 import android.content.Intent;
 import android.os.Bundle;

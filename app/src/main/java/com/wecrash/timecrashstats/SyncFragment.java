@@ -1,4 +1,4 @@
-package io.github.vhoyer.timecrashstats;
+package com.wecrash.timecrashstats;
 
 
 import android.app.Fragment;
@@ -16,7 +16,9 @@ import android.widget.LinearLayout;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-import io.github.vhoyer.timecrashstats.controller.FragmentIntentIntegrator;
+import com.wecrash.timecrashstats.controller.FragmentIntentIntegrator;
+
+import io.github.vhoyer.timecrashstats.R;
 
 import static android.widget.LinearLayout.HORIZONTAL;
 

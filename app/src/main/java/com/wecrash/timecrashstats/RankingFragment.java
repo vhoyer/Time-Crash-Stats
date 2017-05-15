@@ -1,4 +1,4 @@
-package io.github.vhoyer.timecrashstats;
+package com.wecrash.timecrashstats;
 
 
 import android.app.Fragment;
@@ -11,8 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import io.github.vhoyer.timecrashstats.controller.RankingCursorAdapter;
-import io.github.vhoyer.timecrashstats.model.dbController;
+import com.wecrash.timecrashstats.controller.RankingCursorAdapter;
+import com.wecrash.timecrashstats.model.dbController;
+
+import io.github.vhoyer.timecrashstats.R;
 
 
 /**

@@ -1,4 +1,4 @@
-package io.github.vhoyer.timecrashstats;
+package com.wecrash.timecrashstats;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import io.github.vhoyer.timecrashstats.R;
 
 public class MainActivity extends AppCompatActivity
 	implements NavigationView.OnNavigationItemSelectedListener {

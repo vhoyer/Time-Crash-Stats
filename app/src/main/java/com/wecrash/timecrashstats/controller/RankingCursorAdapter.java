@@ -1,4 +1,4 @@
-package io.github.vhoyer.timecrashstats.controller;
+package com.wecrash.timecrashstats.controller;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import io.github.vhoyer.timecrashstats.R;
-import io.github.vhoyer.timecrashstats.model.CreateDB;
+import com.wecrash.timecrashstats.model.CreateDB;
 
 /**
  * Created by vhoyer on 12/05/17.
